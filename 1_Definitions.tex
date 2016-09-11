@@ -9,12 +9,12 @@
 	a Ring $ R $ is a $ R $-algebra with a \textit{filtration} $ F $, i.e.
 	There are subalgebras $ \{ F^nA^\ast \}_{n} $,
 	\begin{gather*}
-		\{ 0 \} \subset \ldots \subset F^{n+1}A^\ast \subset F^nA^\ast 
-		\subset \ldots \subset F^0A^\ast = A^\ast,
+		 \ldots\subset F^1A^\ast\subset \ldots \subset F^{n}A^\ast \subset F^{n+1}A^\ast 
+		\subset \ldots \subset A^\ast,
 	\end{gather*}
 	such that
 	\begin{enumerate}[\textbullet]
-		\item For all $ r,s\in \N $ it holds $ A_rA_s \subset A_{r+s} $.
+		\item For all $ r,s\in \Z $ it holds $ A_rA_s \subset A_{r+s} $.
 	\end{enumerate}
 	
 	
@@ -23,6 +23,7 @@
 	\begin{gather*}
 		\d (ab) = \d (a) b + a^{\deg(a)} \d (b).
 	\end{gather*}
+	Let $ u \in A^\ast $ a element. Define now $ \bar{u} \coloneqq (-1)^{1+\deg u} u $.
 \end{Def}
 
 %two simple examples of a differential graded algebra
@@ -50,12 +51,6 @@
 	\end{gather*}
 \end{Def}
 
-%first definition of the massey product for the n=3 case
-\begin{Def}[Massey Product for $ n=3 $]
-	Let $ (\Gamma,\d,\mu) $ a differential, graded
-	algebra and let $ u\in\Gamma^p,v\in\Gamma^q,\Gamma^r $ elements
-	of the grading, with $ [v] $ \todo{rest of the def}
-\end{Def}
 
 %\nomenclature{$ total_\ast(A_{\ast,\ast}) $}}{see \cite{McC01} p. 24,47}
 

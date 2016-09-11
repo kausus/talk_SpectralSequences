@@ -48,9 +48,9 @@
 \usepackage{verbatim}
 
 %commutative diagramms
-\usepackage{tikz}
-\usepackage{tikz-cd}
-\usetikzlibrary{babel}
+%\usepackage{tikz}
+%\usepackage{tikz-cd}
+%\usetikzlibrary{babel}
 % links, TODO
 %\usepackage[pdftitle={Seminar: "K1 von Ringen"},pdfauthor={Julian Seipel}, pdfsubject={Seminararbeit}]{hyperref}
 %TODO: abschluss-projekt von tex-kurs heranziehen
@@ -135,19 +135,20 @@
 %\newtheorem{Def}{Definition}[section] 
 \theoremstyle{mythms}             
 \newtheorem{Def}{Definition}[section] 
-\newtheorem{Bsp}[Def]{Beispiel}       
+\newtheorem{Bsp}[Def]{Example}       
 
 %\theoremstyle{remark}               
-\newtheorem{Bem}[Def]{Bemerkung}      
+\newtheorem{Bem}[Def]{Remark}      
 \newtheorem{Wdh}[Def]{Wiederholung}   
 
 %\theoremstyle{plain}                  
-\newtheorem{Satz}[Def]{Satz}     
-\newtheorem{Thm}[Def]{Theorem}     
+\newtheorem{Satz}[Def]{Theorem}     
+\newtheorem{Thm}[Def]{Theorem}   
+\newtheorem{DefLem}[Def]{Definition and Lemma}   
 \newtheorem*{satz}{Satz}              
-\newtheorem*{Beh}{Behauptung}
+\newtheorem*{Beh}{Conjecture}
 \newtheorem{Lem}[Def]{Lemma}          
-\newtheorem{Kor}[Def]{Korollar}       
+\newtheorem{Kor}[Def]{Corollary}       
 \newtheorem{Fol}[Def]{Folgerung}      
 
 %a colletion of theorem env die {} a only used for folding up
@@ -299,7 +300,7 @@
 %\renewenvironment{center}{\begin{quote}\bfseries}{\end{quote}}
 % use for font, [slshape,mdseries]
 
-\renewenvironment{proof}{{ \vspace{0.5cm} \bfseries ~\newline Beweis:\newline}\slshape\color{mygray}}{\hfill$\blacksquare$}
+\renewenvironment{proof}{{ \vspace{0.5cm} \bfseries ~\newline Proof:\newline}\slshape\color{mygray}}{\hfill$\blacksquare$}
 \newenvironment{smallproof}{{ \vspace{0.5cm} \bfseries ~\newline Beweis:}\slshape\color{mygray}}{\hfill$\blacksquare$}
 
 %\renewenvironment{proof}{{ \vspace{0.5cm} \bfseries ~\newline Pr$\infty$f:\newline}\slshape\color{mygray}}{\hfill$\blacksquare$}
@@ -405,6 +406,8 @@
 	
 %	because of pairing
 	\newcommand{\pair}[2]{(#1 , #2)}
+
+\newcommand{\massp}[3]{\langle [#1],[#2],[#3] \rangle}
 
 
 	%DefMap

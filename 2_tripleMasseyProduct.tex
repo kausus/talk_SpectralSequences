@@ -1,0 +1,45 @@
+%!TEX root = main.tex
+% vim: tw=0 noet sts=8 sw=8
+
+\section{The triple Massey product}
+
+%first definition of the massey product for the n=3 case
+\begin{DefLem}[Massey triple Product]
+	Let $ (\Gamma,\d,\mu) $ a differential, graded
+	algebra and let $ u\in\Gamma^p,v\in\Gamma^q,w\in\Gamma^r $ representatives of $ [u]\in H^p(\Gamma),[v]\in H^q(\Gamma) $
+	and $ [w]\in H^r(\Gamma) $ such that $ [u][v] = [v][w] = 0 $.
+	Then there exist $ s\in\Gamma^{p+q-1}, t\in\Gamma^{q+r-1} $ 
+	such that $ \d s =\bar{u}v $ and $  \d t= \bar{v}w $. Then
+	$ \bar{s}w + \bar{u}t$ is a cocycle and we can define the \textit{massey triple product} by
+	\begin{align*}
+	\massp{u}{v}{w} \coloneqq &\{ \;[\bar{s}w + \bar{u}t]\in H^{p+q+r-1}(\Gamma) \;\big|\; s\in H^{p+q-r},t\in H^{q+r-1} \\
+	&\text{ such that } \d s = \bar{u}v,\d t = \bar{v}w \;\}.
+	\end{align*} 
+	\begin{proof}
+		Let $ u,v,w,s,t $ as above and consider \todo{more exactly}
+		\begin{align*}
+		\d (\bar{s}w + \bar{u}t) &=  \d(\bar{s})w + (-1)^{1+\deg(\bar{s})} \underbrace{\d(w)}_{=0} + \underbrace{\d(\bar{u})}_{=0}t + (-1)^{\deg(\bar{u})} \bar{u} \d(t) \\
+		&= (-1)^{1+\deg(\bar{s})} \d(s) w + (-1)^{\deg(\bar{u})} u\d(t)  \\
+		&=  (-1)^{1+p+q-1} \bar{u}vw + (-1)^{1+p+q} \bar{u}vw = 0.\\
+		\end{align*}
+		Now the definition of the massey product is well-defined.
+	\end{proof}
+\end{DefLem}
+
+\begin{Thm}
+	Let $ \massp{u}{v}{w} $ a well-defined Massey triple product of
+	the elements $ u\in\Gamma^p,v\in\Gamma^q$ and $ w\in\Gamma^r $,
+	then it's a element of 
+	\begin{gather*}
+			 H^{p+q+r-1}(\Gamma) / \left([u]\cdot H^{q+r-1}(\Gamma) + H^{p+q-1}(\Gamma)\cdot [w] \right)
+	\end{gather*}
+	\begin{proof}
+		\todo{show that different choices does not affect the massey product}
+	\end{proof}
+\end{Thm}
+
+
+%%%% Local Variables:
+%%%% mode: latex
+%%%% TeX-master: "main"
+%%%% End:
