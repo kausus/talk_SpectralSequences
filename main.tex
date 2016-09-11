@@ -1,0 +1,57 @@
+\documentclass[paper=a4, twoside=false, twocolumn=false,%
+fontsize=10pt, titlepage=false, parskip=half,%
+abstract=false,toc=flat]%
+%,left,listof,indent]%
+{scrartcl}
+%{scrreprt}
+%{amsart}  
+%\documentclass[reqno]{amsart}  
+%TODO: vll den Seitenkopf/fuss noch bearbeiten
+%\pagestyle{scrheadings}
+%\ofoot[{\includegraphics[height=10ex]{unilogo.pdf}}]{\includegraphics[height=10ex]{unilogo.pdf}}
+
+%title stuff
+%	\title{Zusammenhang von Immersionen und Spinstruktur}
+%	\author{Julian Seipel}
+\input{config}
+
+\begin{document}
+
+
+%% titlepage
+%\input{titlepage}
+
+
+%inhaltsverzeichnis
+%\todo{inhaltsverzeichnis auf eigener seite}
+%\todo{inhaltsverzeichnis clickable machen}
+\tableofcontents
+%\pagebreak
+
+%gesamt content
+
+% konventionen
+\include{0_Konventions}
+
+\include{1_Definitions}
+
+% kapitel über die beiden grundlegend benötigende Strukturen
+%\input{2_HauptfaserbuendelUndSpinstruktur}
+
+% kapitel über Immersionen
+%\input{3_Immersionen}
+
+% kapitel über den Zusammenhang der bewiesen werden soll
+%\include{4_Hauptteil}
+
+\input{trash}
+
+\newpage
+
+
+%Literatur
+\nocite{*}
+\printbibliography
+%\printnomenclature
+
+\end{document}

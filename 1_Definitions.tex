@@ -1,0 +1,65 @@
+%!TEX root = main.tex
+% vim: tw=0 noet sts=8 sw=8
+
+\section{First Definitions}
+
+% see McC01 p. 11,44,235
+\begin{Def}[graded algebra, graded differential algebra]
+	A \textit{graded algebra} $ (A^\ast,F) $ over
+	a Ring $ R $ is a $ R $-algebra with a \textit{filtration} $ F $, i.e.
+	There are subalgebras $ \{ F^nA^\ast \}_{n} $,
+	\begin{gather*}
+		\{ 0 \} \subset \ldots \subset F^{n+1}A^\ast \subset F^nA^\ast 
+		\subset \ldots \subset F^0A^\ast = A^\ast,
+	\end{gather*}
+	such that
+	\begin{enumerate}[\textbullet]
+		\item For all $ r,s\in \N $ it holds $ A_rA_s \subset A_{r+s} $.
+	\end{enumerate}
+	
+	
+	A \textit{graded differential algebra} $ (\Gamma,\d) $ is a 
+	graded algebra $ \Gamma $ and a differential map $ \abb{\d}{\Gamma}{\Gamma} $ with degree $ 1 $, that satisfies $ \d\circ\d =0 $ and the Leibniz rule, i.e.
+	\begin{gather*}
+		\d (ab) = \d (a) b + a^{\deg(a)} \d (b).
+	\end{gather*}
+\end{Def}
+
+%two simple examples of a differential graded algebra
+\begin{Bsp}
+	A already known example is that of the \textit{deRahm Cohomology}.
+\end{Bsp}
+
+%see \cite{McC01} p.24, 
+\begin{Def}[double cocomplex,total cocomplex]
+	A \textit{total complex} $ (A^{\ast,\ast},\d^{'},\d^{''}) $ over
+	a ring $ R $ consists of the following data:
+	\begin{enumerate}[\textbullet]
+		\item  $ R $-moduls $ A^{nm} $ for all $ n,m\in\Z $
+		\item Differential maps $ \abb{\d^{'}}{A^{nm}}{A^{n+1,m}} $,
+		$ \abb{\d^{''}}{A^{nm}}{A^{n,m+1}} $.
+		\item The differential maps satisfy, 
+		\begin{gather*}
+			\d^{'} \circ \d^{'} = \d^{''}\circ\d^{''} = 0\\ \d^{'}\circ\d^{''} + \d^{''}\circ\d^{'} =0 .
+		\end{gather*} 
+	\end{enumerate}
+	
+	The \textit{total cocomplex} of a double cocomplex $ (A^{\ast,\ast},\d^{'},\d^{''}) $ is defined by 
+	\begin{gather*}
+		(\total(A^{\ast,\ast}))^n \coloneqq \bigoplus_{p+q=n} A^{pq}.
+	\end{gather*}
+\end{Def}
+
+%first definition of the massey product for the n=3 case
+\begin{Def}[Massey Product for $ n=3 $]
+	Let $ (\Gamma,\d,\mu) $ a differential, graded
+	algebra and let $ u\in\Gamma^p,v\in\Gamma^q,\Gamma^r $ elements
+	of the grading, with $ [v] $ \todo{rest of the def}
+\end{Def}
+
+%\nomenclature{$ total_\ast(A_{\ast,\ast}) $}}{see \cite{McC01} p. 24,47}
+
+%%%% Local Variables:
+%%%% mode: latex
+%%%% TeX-master: "main"
+%%%% End:

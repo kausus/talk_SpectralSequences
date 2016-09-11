@@ -1,0 +1,547 @@
+\usepackage[T1]{fontenc}                            
+% encodings                                        
+\usepackage[utf8]{inputenc}                         
+\usepackage[english,shorthands=off]{babel}                  
+\usepackage{lmodern}                                
+\usepackage{microtype}                              
+\usepackage{scrlayer-scrpage}                       
+\usepackage{enumerate}                              
+%\usepackage{enumitem}
+\usepackage{csquotes}   
+\usepackage{slashed}				%Dirac slash
+\usepackage{todonotes}     
+%\usepackage{lscape}
+% for \FloatBarrier
+\usepackage{placeins}   
+%	\usepackage{fancyhdr}				%includes a fancy header on each page
+
+              
+% Nomenklatur, d.h. Symbolverzeichnis
+% Eintrag wird erstellt durch:
+% \nomenclature[<prefix for sorting>]{<symbol>}{<description>}
+% !! keine neuen Zeilen im Befehl und alle außen herum auskommentieren !!
+%
+% Ausgabe mit:
+% \printnomenclature
+% 
+% Erzeugt .nlo Datei mit dem Programmaufruf (Terminal):
+% makeindex OptikSkriptWS1516.nlo -s nomencl.ist -o OptikSkriptWS1516.nls
+\usepackage[intoc, refpage]{nomencl}              
+%\makenomenclature
+%\printnomenclature
+
+              
+%bibliography                 
+%\usepackage[backend=biber,style=numeric-comp]{biblatex}
+%\bibliography{literatur.bib}
+\usepackage[backend=bibtex, style=numeric-comp, sorting=nty]{biblatex}
+\bibliography{literatur}
+
+% for fancy colors
+\usepackage{xcolor}
+
+
+% %maths                                            
+\usepackage{amsmath, amsthm, amssymb, bm, bbm, mathtools, dsfont, mathrsfs}
+
+%zum spielen
+\usepackage{verbatim}
+
+%commutative diagramms
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usetikzlibrary{babel}
+% links, TODO
+%\usepackage[pdftitle={Seminar: "K1 von Ringen"},pdfauthor={Julian Seipel}, pdfsubject={Seminararbeit}]{hyperref}
+%TODO: abschluss-projekt von tex-kurs heranziehen
+
+%fancyheader
+%\usepackage{fancyhdr, blindtext}
+
+%\renewenvironment{proof}{{\bfseries Proof}}{*something*}
+% \newenvironment{myproof}[1][\proofname]{%
+%   \proof[\ttfamily \scshape \large #1 (yes, ``#1'')]%
+% }{\endproof}
+
+%must be loaded as lastest
+\usepackage{cleveref}
+% out of lemma 1.1 to Lemma 1.1
+\let\cref=\Cref                                                    
+%special mathsymbols                                
+
+%title stuff
+%	\let\oldtitle\title
+%	\renewcommand{\title}[1]{\oldtitle{#1}\newcommand{\mythetitle}{#1}}
+%	\let\oldauthor\author
+%	\renewcommand{\author}[1]{\oldauthor{#1}\newcommand{\mytheauthor}{#1}}	
+
+%% fancy plain style
+%	\fancypagestyle{plain}{%
+%		\fancyhf{}%
+%		\fancyfoot[C]{}%
+%		\renewcommand{\headrulewidth}{0pt}% Line at the header invisible
+%		\renewcommand{\footrulewidth}{0pt}% Line at the footer invisible
+%	}	
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Definitions and macros
+
+\newcommand{\C}{\mathds{C}}                         
+\newcommand{\R}{\mathds{R}}                         
+\newcommand{\N}{\mathds{N}}                         
+\newcommand{\Z}{\mathds{Z}}                         
+\newcommand{\Q}{\mathds{Q}}
+\renewcommand{\H}{\mathds{H}}
+
+% oder alternativ, funktioniert aber nicht
+%\defmathbbsymbols{Z Q C}
+%\defmathbbsymbolsubs{N R}
+
+
+\newcommand{\pma}[1]{\begin{pmatrix} #1 \end{pmatrix}}
+\newcommand{\A}{\mathscr{A}}
+\newcommand{\F}{\mathbb{F}}                                            
+\newcommand{\gs}{$\{a_0,\ldots ,a_n\}$ }
+\newcommand{\gr}[1]{\left| #1 \right|}
+% TODO: schreibe newcommand, das #2 als optional nimmt, und somit kein
+% \Big| setzt
+\newcommand{\set}[2]{\bigl\{ #1 \;  | \; #2 \bigr\}}
+\newcommand{\sset}[1]{\bigl\{ #1 \bigr\}}
+\renewcommand{\sp}[2]{\sum\limits_{i=#1}^{#2}}
+
+\newcommand{\nn}[1][\,\bullet\,]{\left\| #1 \right\|}	% norm       
+\newcommand{\foo}[2][]{#1 und #2 }
+
+\newcommand{\ch}{\conv(\sset{a_0,\ldots , a_n})}
+
+%\newcommand{\SS}{\mathbb{S}}
+                    
+%%%%%%%%%%%%%%%%%%%%                                
+%theoremstyle                                       
+\newtheoremstyle{mythms}
+ {15pt}% space above
+ {12pt}% space below 
+ {\mdseries}% body font
+ {}% indent amount
+ {\bfseries}% theorem head font
+ {:}% punctuation after theorem head
+ {0.6cm plus 0.25cm minus 0.1cm}% space after theorem head (\newline possible)
+ {}% theorem head spec 
+
+
+                          
+% math (theorems)                     
+%\theoremstyle{Definition}             
+%\newtheorem{Def}{Definition}[section] 
+\theoremstyle{mythms}             
+\newtheorem{Def}{Definition}[section] 
+\newtheorem{Bsp}[Def]{Beispiel}       
+
+%\theoremstyle{remark}               
+\newtheorem{Bem}[Def]{Bemerkung}      
+\newtheorem{Wdh}[Def]{Wiederholung}   
+
+%\theoremstyle{plain}                  
+\newtheorem{Satz}[Def]{Satz}     
+\newtheorem{Thm}[Def]{Theorem}     
+\newtheorem*{satz}{Satz}              
+\newtheorem*{Beh}{Behauptung}
+\newtheorem{Lem}[Def]{Lemma}          
+\newtheorem{Kor}[Def]{Korollar}       
+\newtheorem{Fol}[Def]{Folgerung}      
+
+%a colletion of theorem env die {} a only used for folding up
+{
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     loeh
+%	\newtheorem{thm}{Theorem}[section]
+%	\newtheorem{prop}[thm]{Proposition}
+%	\newtheorem{lem}[thm]{Lemma}
+%	\newtheorem{cor}[thm]{Corollary}
+%	\newtheorem{conj}[thm]{Conjecture}
+%	\newtheorem{problem}[thm]{Problem}
+%	\newtheorem{question}[thm]{Question}
+%	\newtheorem{setup}[thm]{Setup}
+%	
+%	\theoremstyle{remark}
+%	\newtheorem{rem}[thm]{Remark}
+%	\newtheorem{exa}[thm]{Example}
+%	\newtheorem{nonexa}[thm]{(Non-)Example}
+%	\newtheorem{notation}[thm]{Notation}
+%	\newtheorem*{ack}{Acknowledgements}
+%	
+%	\theoremstyle{definition}
+%	\newtheorem{defi}[thm]{Definition}          
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% pilca
+
+%\theoremstyle{plain}
+%
+%\newtheorem{theorem}{Theorem}[section]
+%%\newtheorem{theorem}[theorem]{Theorem}
+%\newtheorem{proposition}[theorem]{Proposition}
+%\newtheorem{lemma}[theorem]{Lemma}
+%\newtheorem{corollary}[theorem]{Corollary}
+%\newtheorem{conjecture}[theorem]{Conjecture}
+%\newtheorem{principle}[theorem]{Principle}
+%\newtheorem{claim}[theorem]{Claim}
+%
+%\theoremstyle{definition}
+%
+%%\newtheorem{roughdef}[subsection]{Rough Definition}
+%\newtheorem{definition}[theorem]{Definition}
+%\newtheorem{remark}[theorem]{Remark}
+%\newtheorem{remarks}[theorem]{Remarks}
+%\newtheorem{example}[theorem]{Example}
+%\newtheorem{examples}[theorem]{Examples}
+%%\newtheorem{problem}[subsection]{Problem}
+%%\newtheorem{question}[subsection]{Question}
+
+% strohmaier
+
+% \newtheorem{theorem}{Theorem}[section]
+% \newtheorem{lem}[theorem]{Lemma}
+% \newtheorem{cor}[theorem]{Corollary}
+% \newtheorem{pro}[theorem]{Proposition}
+% \newtheorem{hyp}[theorem]{Hypothesis}
+% \newtheorem*{maintheorem}{Main Theorem}
+% 
+% \theoremstyle{definition}
+% \newtheorem{definition}[theorem]{Definition}
+% \newtheorem{exa}[theorem]{Example}
+% \newtheorem{rem}[theorem]{Remark}
+% \newtheorem{rems}[theorem]{Remarks}
+% \newtheorem{exercise}[theorem]{Exercise}
+
+%	nikolai
+
+%	\declaretheoremstyle[
+%	spaceabove=6pt, spacebelow=6pt,
+%	headfont=\normalfont\bfseries,
+%	notefont=\bfseries, notebraces={(}{)},
+%	bodyfont=\normalfont,
+%	postheadspace=1em,
+%	qed=$\lozenge$
+%	]{mystylesingle}
+%	
+%	\declaretheorem[style=mystylesingle,name=Problem]{Prb}
+%	\declaretheorem[style=mystylesingle,name=Main Theorem]{MainThm}
+%	\declaretheorem[style=mystylesingle,name=Question]{Qst}
+%	
+%	\declaretheoremstyle[
+%	spaceabove=6pt, spacebelow=6pt,
+%	headfont=\normalfont\bfseries,
+%	notefont=\bfseries, notebraces={(}{)},
+%	bodyfont=\normalfont,
+%	postheadspace=1em,
+%	qed=$\lozenge$,
+%	]{mythmstyle}
+%	
+%	
+%	\declaretheoremstyle[
+%	spaceabove=6pt, spacebelow=6pt,
+%	headfont=\normalfont\bfseries,
+%	notefont=\mdseries, notebraces={(}{)},
+%	bodyfont=\normalfont,
+%	postheadspace=1em,
+%	qed=$\square$,
+%	]{myprfstyle}
+%	
+%	
+%	\declaretheorem[style=mythmstyle,name=Definition,numberwithin=section]{Def}
+%	
+%	\declaretheorem[style=mythmstyle,sibling=Def,name=Theorem]{Thm}
+%	\declaretheorem[style=mythmstyle,sibling=Def,name=Example]{Exm}
+%	\declaretheorem[style=mythmstyle,sibling=Def,name=Convention]{Con}
+%	\declaretheorem[style=mythmstyle,sibling=Def,name=Corollary]{Cor}
+%	\declaretheorem[style=mythmstyle,sibling=Def,name=Fact]{Fct}
+%	\declaretheorem[style=mythmstyle,sibling=Def,name=Lemma]{Lem}
+%	\declaretheorem[style=mythmstyle,sibling=Def]{NumText}
+%	\declaretheorem[style=mythmstyle,sibling=Def,name=Remark]{Rem}
+%	\declaretheorem[style=mythmstyle,sibling=Def,name=Conjecture]{Cnj}
+%	\declaretheorem[style=mythmstyle,sibling=Def,name=Notation]{Not}
+%	\declaretheorem[style=mythmstyle,sibling=Def]{recall}	
+%	
+%	\declaretheorem[style=myprfstyle,numbered=no,name=Proof]{Prf}	
+%	
+%	
+%	%Specify plural forms for all cleverrefs for the new theorems
+%	\crefname{Def}{Definition}{Definitions}
+%	\crefname{Exm}{Example}{Examples}
+%	\crefname{Con}{Convention}{Conventions}
+%	\crefname{Cor}{Corollary}{Corollaries}
+%	\crefname{Fct}{Fact}{Facts}
+%	\crefname{Lem}{Lemma}{Lemmas}
+%	\crefname{NumText}{Paragraph}{Paragraphs}
+%	\crefname{Rem}{Remark}{Remarks}
+%	\crefname{Cnj}{Conjecture}{Conjectures}
+%	\crefname{Exc}{Exercise}{Exercises}
+%	\crefname{MainThm}{Main Theorem}{Main Theorems}
+%	\crefname{Prb}{Problem}{Problems}
+%	\crefname{Qst}{Question}{Questions}
+%	\crefname{Thm}{Theorem}{Theorems}
+%	\crefname{Not}{Notation}{Notation}
+%	\crefname{Prf}{Proof}{Proofs}
+%	
+
+	
+	
+	}
+
+
+
+
+                                                  
+%own color for proof environment
+\definecolor{mygray}{rgb}{0.2,0.2,0.2}
+
+%\renewenvironment{center}{\begin{quote}\bfseries}{\end{quote}}
+% use for font, [slshape,mdseries]
+
+\renewenvironment{proof}{{ \vspace{0.5cm} \bfseries ~\newline Beweis:\newline}\slshape\color{mygray}}{\hfill$\blacksquare$}
+\newenvironment{smallproof}{{ \vspace{0.5cm} \bfseries ~\newline Beweis:}\slshape\color{mygray}}{\hfill$\blacksquare$}
+
+%\renewenvironment{proof}{{ \vspace{0.5cm} \bfseries ~\newline Pr$\infty$f:\newline}\slshape\color{mygray}}{\hfill$\blacksquare$}
+
+
+%TODO: schrift soll geändert werden,
+%\renewenvironment*{proof}{\bfseries}{}
+
+%stuff used only a few times                        
+\DeclareMathOperator{\D}{D}
+\DeclareMathOperator{\total}{total}
+\DeclareMathOperator{\CC}{C}
+\DeclareMathOperator{\pow}{P} 
+\DeclareMathOperator{\f}{\varphi} 
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\SL}{SL}
+\DeclareMathOperator{\K}{K_1}
+\DeclareMathOperator{\SK}{SK_1}
+\DeclareMathOperator{\E}{E}
+\DeclareMathOperator{\Mat}{Mat}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Int}{Int}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\B}{B}
+\DeclareMathOperator{\Bn}{\overline{\B_{n}(0)}}
+%\DeclareMathOperator{\Sp}{S} 
+%better
+\renewcommand{\S}{\operatorname{S}}	
+\renewcommand{\d}{\operatorname{d}}	%or use \mathrm{d}
+\DeclareMathOperator{\V}{V}
+\DeclareMathOperator{\conv}{conv}
+\DeclareMathOperator{\imm}{Imm}
+\DeclareMathOperator{\immf}{\Imm^{form}}
+% Op and soOP are the Operators for the principial bundles
+\DeclareMathOperator{\so}{\mathsf{SO}} 
+\DeclareMathOperator{\su}{\mathsf{SU}}
+\DeclareMathOperator{\spin}{\mathsf{Spin}}
+\DeclareMathOperator{\map}{Abb}
+\DeclareMathOperator{\T}{T}
+\DeclareMathOperator{\Ad}{Ad}
+\DeclareMathOperator{\Adt}{\widetilde{\operatorname{Ad}}} % Ad twisted
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\CCl}{\C\ell}				%complexified Clifford algebra
+\DeclareMathOperator{\Cl}{C\ell}				%Clifford algebra
+%\DeclareMathOperator{\dim}{\mathsf{ dim}}
+%better epsilon
+\def\epsilon{\varepsilon}
+
+                      
+             	                  
+
+
+
+\DeclarePairedDelimiter{\norm}{\lVert}{\rVert}
+
+\newcommand{\LLeftrightarrow}{~\Leftrightarrow ~}
+\let\Leftrightarrow=\LLeftrightarrow
+
+%loop operator
+\newcommand{\mmm}{\looparrowright}
+
+%\renewcommand{\theenumi}{\alpha{enumi}}
+%\renewcommand{\thepage}{\Roman{\page}}
+%\addtokomafont{part}{\itshape}
+%\setkomafont{section}{\normalfont\Large}
+%\setkomafont{subsection}{\normalfont\Large}
+%\pagenumbering{Roman}
+
+%\DeclareMathOperator{\E}{E}
+% \newcommand{\exxp}[1]{\exp \left( #1 \right)}       
+% \renewcommand{\sin}[1]{\sin \left( #1 \right)}      
+
+%stuff, sometimes needed
+
+%TIP: vermeide $$-env in newcommands
+\newcommand{\RMF}{riemannische Mannigfaltigkeit }
+\newcommand{\RMFen}{riemannischen Mannigfaltigkeiten }
+\newcommand{\mfg}{Mannigfaltigkeit }
+\newcommand{\mfgen}{Mannigfaltigkeiten }
+\newcommand{\Ph}[2]{P_{#1}#2}
+%\newcommand{\Pho}[3]{P_{#1}^{#3}#2}
+%better without more brackets
+%\newcommand{\spin}[1]{\spinOp_{ #1 }}
+%\newcommand{\so}[1]{\soOp_{ #1 } }
+\newcommand{\scalar}[2]{\langle #1 {,} #2 \rangle}
+\newcommand{\scdots}{\scalar{\cdot}{\cdot}}%{$\langle\cdot{,}\cdot\rangle$}
+\newcommand{\CP}{\C P}
+\newcommand{\RP}{\R P}
+\newcommand{\abb}[3]{#1 \colon #2 \rightarrow #3} % f\colon D \to Z$
+\newcommand{\Imm}[2]{\imm(#1,#2)}
+\newcommand{\Immf}[2]{\imm^{form}(#1,#2)}
+\newcommand{\Immfi}[2]{\imm^{form}_{iso}(#1,#2)}
+%\newcommand{\Gl}[1]{\GL(#1)}
+\newcommand{\tang}[2]{\T_{#1}#2}
+\newcommand{\Cinfty}[2]{\CC^\infty( #1 , #2 )}
+
+\newcommand*{\pd}[2][]{\frac{\partial #1}{\partial #2}}
+
+	%cat and fun
+	\newcommand{\cat}[1]{\mathbf{#1}}
+	\newcommand{\fun}[1]{\bm{\mathrm{#1}}}
+%	\newcommand{\vecA}{\vec{A}}
+	
+%	because of pairing
+	\newcommand{\pair}[2]{(#1 , #2)}
+
+
+	%DefMap
+	\newcommand{\DefMap}[4]{
+		\begin{align*}
+		\begin{array}{rcl}
+		#1 & \to & #2 \\
+		#3 & \mapsto & #4 
+		\end{array} 
+		\end{align*}
+	}
+
+
+
+
+%\wr liefert für diagramme eine tilde<
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% from foreign sources
+{
+	
+%	richtige trennung
+%	\hyphenation{Fou-rier-trans-for-ma-tion}
+	
+	
+	
+	%\newcommand*{\largecdot}{\raisebox{-0.25ex}{\scalebox{1.2}{$\cdot$}}}
+	
+	
+	%%%%%%%%%%%% interesting manipulation
+	%\makeatletter% Damit man Footnotes ohne Nummer machen kann.
+	%\def\blfootnote{\gdef\@thefnmark{}\@footnotetext}
+	%\makeatother
+	
+	% what does providecommand
+	%\providecommand{\bysame}{\leavevmode\hbox to3em{\hrulefill}\thinspace}
+	%\providecommand{\MR}{\relax\ifhmode\unskip\space\fi MR }
+	
+	%%%%%%%%%%%%%%%%%%%%%%
+	%collection of all mathical formation
+	%\begin{gather*}
+	%\mathbf{ABCDEFGHIJKLMNOPQRSTUVWXYZ}\\
+	%\mathbb{ABCDEFGHIJKLMNOPQRSTUVWXYZ}\\
+	%\mathcal{ABCDEFGHIJKLMNOPQRSTUVWXYZ}\\
+	%\mathds{ABCDEFGHIJKLMNOPQRSTUVWXYZ}\\
+	%\mathfrak{ABCDEFGHIJKLMNOPQRSTUVWXYZ}\\
+	%\mathit{ABCDEFGHIJKLMNOPQRSTUVWXYZ}\\
+	%\mathrm{ABCDEFGHIJKLMNOPQRSTUVWXYZ}\\
+	%\mathsf{ABCDEFGHIJKLMNOPQRSTUVWXYZ}\\
+	%\mathtt{ABCDEFGHIJKLMNOPQRSTUVWXYZ}\\ 
+	%\end{gather*}
+	
+	
+	%\newcommand{\mnote}[1]{\marginpar{\tiny\em #1}} 
+	
+	% fancy sum macro
+	%\newcommand{\suma}[2]{\overset{\left[\frac{#2}{2}\right]}{\underset{\ell=#1}{\sum}}}
+	
+	% nice macros
+	%\newcommand{\FE}{F\hspace{-0.8mm}E}
+	%\newcommand{\gc}{\check g}	
+	
+	
+	%%	these two macros does the same thing
+	%\def\Ric{{\mathrm{Ric}}}
+	%\DeclareMathOperator{\Ric}{Ric}
+	
+	
+	
+	%%	equivalent macros
+	%	\newcommand{\definedas}{\mathrel{\raise.095ex\hbox{\rm:}\mkern-5.2mu=}}
+	%	\coloneqq
+	%
+	
+	
+	
+	
+	%\DeclareMathOperator{\Cst}{{\sf C}\,\text{\raisebox{-.1em}{${}^*$}}}
+	%\DeclareMathOperator{\Set}{{\sf Set}}
+	%\DeclareMathOperator{\Sett}{{Set}}
+	%\DeclareMathOperator{\Top}{{\sf Top}}
+	%\DeclareMathOperator{\Toppt}{{\sf Top}_*}
+	%\DeclareMathOperator{\Toppth}{{\sf Top}_{* \sf h}}
+	%\DeclareMathOperator{\Toph}{{\sf Top}_{\sf h}}
+	%\DeclareMathOperator{\Group}{{\sf Group}}
+	%\DeclareMathOperator{\Vect}{{\sf Vect}}
+	%\DeclareMathOperator{\sn}{{\sf sn}}
+	%\DeclareMathOperator{\Ab}{{\sf Ab}}
+	%\DeclareMathOperator{\CW}{{\sf CW}}
+	%\DeclareMathOperator{\CWh}{{\sf CW}_{{\sf h}}}
+	%\DeclareMathOperator{\CWpt}{{\sf CW}_*}
+	%\DeclareMathOperator{\snAb}{{\sf snAb}}
+	%\DeclareMathOperator{\snAbfin}{{\sf snAb}^{{\sf fin}}}
+	%\DeclareMathOperator{\Ch}{{\sf Ch}}
+	%\DeclareMathOperator{\CoCh}{{\sf CoCh}}
+	%%TODO: what are this def are doing
+	%\def\LCh#1{{}_{#1}\!\Ch}
+	%\def\RCh#1{\Ch_{#1}}
+	%%%
+	%\DeclareMathOperator{\Ob}{Ob}
+	%\DeclareMathOperator{\Mor}{Mor}
+
+%\newcommand{\multitext}[1]{%
+%	$\left\{\begin{tabular}{@{}l@{}}%
+%	#1
+%	\end{tabular} \right\}$%
+%}
+
+%% inject pdfbookmarks at thm like environments
+%\makeatletter
+%\let\origswappedhead=\swappedhead
+%\newcommand{\@thmnote}{}
+%
+%\renewcommand{\swappedhead}[3]{%
+%	\origswappedhead{#1}{#2}{#3}%
+%	\ifx\relax\@nextmarkdesc
+%	\def\@thmnote{#3}%
+%	\else
+%	\let\thmnote=\@iden
+%	\let\@thmnote=\@nextmarkdesc 
+%	\global\let\@nextmarkdesc=\relax
+%	\fi
+%	\belowpdfbookmark{#2~#1\thmnote{ (\@thmnote)}}{#1#2}%
+%}
+%\newcommand{\@nextmarkdesc}{}
+%\let\@nextmarkdesc=\relax
+%\newcommand{\nextmark}[1]{%
+%	\def\@nextmarkdesc{#1}%
+%}
+%\makeatother
+
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "main"
+%%% End:
